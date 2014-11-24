@@ -16,7 +16,7 @@ class Vertex(object):
     def __repr__(self):
         """Returns a string representation of this object that can
         be evaluated as a Python expression."""
-        return 'Vertex(%s)' % repr(self.label)
+        return 'V(%s)' % repr(self.label)
 
     __str__ = __repr__
     """The str and repr forms of this object are the same."""
@@ -34,7 +34,7 @@ class Edge(tuple):
     def __repr__(self):
         """Return a string representation of this object that can
         be evaluated as a Python expression."""
-        return 'Edge(%s, %s)' % (repr(self[0]), repr(self[1]))
+        return 'E(%s, %s)' % (repr(self[0]), repr(self[1]))
 
     __str__ = __repr__
     """The str and repr forms of this object are the same."""
@@ -103,21 +103,27 @@ def main(script, *args):
     w = Vertex('w')
     e = Edge(v, w)
     g = Graph([v,w], [e])
+    print "Graph with first edge"
     print g
 
     u = Vertex('u')
     g.add_vertex(u)
     e = Edge(u, v)
     g.add_edge(e)
+    print "Graph with one more edge"
     print g
 
+    print "list of vertices"
     print g.vertices()
     
     x = Vertex('X')
+    print "Edge vx"
     print g.get_edge(v, x)
+    print "Edge vw"
     print g.get_edge(v, w)
     
     g.remove_edge(e)
+    print "Grah after removing edge uvs"
     print g.get_edge(v, w)
     
     
