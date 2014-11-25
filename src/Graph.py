@@ -92,10 +92,16 @@ class Graph(dict):
 
     def vertices(self):
         """Returns the list of vertices in the graph.
-        
-        This uses the fact that the vertices are keys of the outer dictionary.
         """
         return [k for k in self]
+
+    def out_edges(self, v):
+        """ Returns the list of edges for a vertex
+        """
+        if(self[v]):
+            return [self[v][k] for k in self[v]]
+        else:
+            return None
 
         
 def main(script, *args):
@@ -115,6 +121,9 @@ def main(script, *args):
 
     print "list of vertices"
     print g.vertices()
+    
+    print "list of edges for vertex v"
+    print g.out_edges(v)
     
     x = Vertex('X')
     print "Edge vx"
