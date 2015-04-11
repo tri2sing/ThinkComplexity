@@ -103,12 +103,15 @@ class Graph(dict):
         else:
             return None
 
-        
+    def add_all_edges(self):
+         return 1
+         
+            
 def main(script, *args):
     v = Vertex('v')
     w = Vertex('w')
     e = Edge(v, w)
-    g = Graph([v,w], [e])
+    g = Graph([v, w], [e])
     print "Graph with first edge"
     print g
 
