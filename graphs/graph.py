@@ -7,39 +7,6 @@ Copyright 2011 Allen B. Downey.
 Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
 """
 
-class Vertex(object):
-    """A Vertex is a node in a graph."""
-
-    def __init__(self, label=''):
-        self.label = label
-
-    def __repr__(self):
-        """Returns a string representation of this object that can
-        be evaluated as a Python expression."""
-        return 'V(%s)' % repr(self.label)
-
-    __str__ = __repr__
-    """The str and repr forms of this object are the same."""
-
-
-class Edge(tuple):
-    """An Edge is a list of two vertices."""
-
-    def __new__(cls, *vs):
-        """The Edge constructor takes two vertices."""
-        if len(vs) != 2:
-            raise ValueError, 'Edges must connect exactly two vertices.'
-        return tuple.__new__(cls, vs)
-
-    def __repr__(self):
-        """Return a string representation of this object that can
-        be evaluated as a Python expression."""
-        return 'E(%s, %s)' % (repr(self[0]), repr(self[1]))
-
-    __str__ = __repr__
-    """The str and repr forms of this object are the same."""
-
-
 class Graph(dict):
     """A Graph is a dictionary of dictionaries.  The outer
     dictionary maps from a vertex to an inner dictionary.
@@ -104,42 +71,6 @@ class Graph(dict):
             return None
 
     def add_all_edges(self):
-         return 1
+        return 1
          
             
-def main(script, *args):
-    v = Vertex('v')
-    w = Vertex('w')
-    e = Edge(v, w)
-    g = Graph([v, w], [e])
-    print "Graph with first edge"
-    print g
-
-    u = Vertex('u')
-    g.add_vertex(u)
-    e = Edge(u, v)
-    g.add_edge(e)
-    print "Graph with one more edge"
-    print g
-
-    print "list of vertices"
-    print g.vertices()
-    
-    print "list of edges for vertex v"
-    print g.out_edges(v)
-    
-    x = Vertex('X')
-    print "Edge vx"
-    print g.get_edge(v, x)
-    print "Edge vw"
-    print g.get_edge(v, w)
-    
-    g.remove_edge(e)
-    print "Grah after removing edge uvs"
-    print g.get_edge(v, w)
-    
-    
-
-if __name__ == '__main__':
-    import sys
-    main(*sys.argv)
