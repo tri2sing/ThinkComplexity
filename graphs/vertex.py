@@ -13,9 +13,14 @@ class Vertex(object):
     def __repr__(self):
         """Returns a string representation of this object that can
         be evaluated as a Python expression."""
-        return 'V(%s)' % repr(self.label)
+        return '%s' % repr(self.label)
 
     __str__ = __repr__
     """The str and repr forms of this object are the same."""
 
+    def __eq__(self, other):
+        if type(other) is type(self):
+            return self.label == other.label
+        return False
 
+    

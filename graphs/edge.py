@@ -16,7 +16,14 @@ class Edge(tuple):
     def __repr__(self):
         """Return a string representation of this object that can
         be evaluated as a Python expression."""
-        return 'E(%s, %s)' % (repr(self[0]), repr(self[1]))
+        return '(%s, %s)' % (repr(self[0]), repr(self[1]))
 
     __str__ = __repr__
     """The str and repr forms of this object are the same."""
+
+    def __eq__(self, other):
+        print "Edge equality", self, other
+        if type(other) is type(self):
+            return self[0] == other[0] and self[1] == other[1]
+        print 'Did not find a match'
+        return False

@@ -40,11 +40,11 @@ class Graph(dict):
         self[v][w] = e
         self[w][v] = e
 
-    def get_edge(self, v, w):
+    def get_edge(self, u, v):
         """Returns an edge between two vertices if it exists or None otherwise
         """
         try:
-            return self[v][w]
+            return self[u][v]
         except Exception:
             return None
 

@@ -23,21 +23,28 @@ def main(script, *args):
     g.add_edge(e)
     print "Graph with one more edge"
     print g
-
+    print "Getting edge"
+    e1 = g.get_edge(u, v)
+    print "assert 1, e = ", e, ", e1 = ", e1
+    assert(e1 == e)
+    e2 = g.get_edge(Vertex('u'), Vertex('v'))
+    print "assert 2, e = ", e, ", e2 = ", e2
+    assert ( e2 == e)
+    
     print "list of vertices"
     print g.vertices()
     
     print "list of edges for vertex v"
     print g.out_edges(v)
     
-    x = Vertex('X')
+    x = Vertex('x')
     print "Edge vx"
     print g.get_edge(v, x)
     print "Edge vw"
     print g.get_edge(v, w)
     
     g.remove_edge(e)
-    print "Grah after removing edge uvs"
+    print "Grah after removing edge vw"
     print g.get_edge(v, w)
     
     
