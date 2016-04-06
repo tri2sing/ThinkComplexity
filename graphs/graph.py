@@ -43,6 +43,7 @@ class Graph(dict):
     def get_edge(self, u, v):
         """Returns an edge between two vertices if it exists or None otherwise
         """
+        print "Input = ", u, v
         try:
             return self[u][v]
         except Exception:

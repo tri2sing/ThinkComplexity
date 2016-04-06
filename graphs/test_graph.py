@@ -24,6 +24,6 @@ def test_graph():
 def test_get_edge(test_graph):   
     u = Vertex('u')
     v = Vertex('v') 
-    etest = Edge(u, v)
-    ereturn = test_graph.get_edge(u, v)
-    assert( etest == ereturn)
+    testedge = Edge(u, v)
+    returnededge = test_graph.get_edge(u, v)
+    assert( testedge == returnededge)

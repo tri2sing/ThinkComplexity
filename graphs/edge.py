@@ -22,8 +22,9 @@ class Edge(tuple):
     """The str and repr forms of this object are the same."""
 
     def __eq__(self, other):
-        print "Edge equality", self, other
         if type(other) is type(self):
             return self[0] == other[0] and self[1] == other[1]
-        print 'Did not find a match'
         return False
+
+    def __hash__(self):
+        return hash((self[0], self[1]))

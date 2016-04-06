@@ -23,4 +23,6 @@ class Vertex(object):
             return self.label == other.label
         return False
 
-    
+    def __hash__(self):
+        return hash(self.label)
+
