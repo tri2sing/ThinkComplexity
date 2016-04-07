@@ -43,7 +43,6 @@ class Graph(dict):
     def get_edge(self, u, v):
         """Returns an edge between two vertices if it exists or None otherwise
         """
-        print "Input = ", u, v
         try:
             return self[u][v]
         except Exception:
@@ -53,11 +52,14 @@ class Graph(dict):
         """Removes an edge if it exists
         """
         v, w = e
-        if self[v][w]:
-            del(self[v][w])
-        if self[w][v]:
-            del(self[w][v]) 
-
+        try:
+            if self[v][w]:
+                del(self[v][w])
+            if self[w][v]:
+                del(self[w][v]) 
+        except:
+            raise ValueError("Trying to remove non-existent edge")
+            
     def vertices(self):
         """Returns the list of vertices in the graph.
         """
