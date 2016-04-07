@@ -1,11 +1,3 @@
-""" Code example from Complexity and Computation, a book about
-exploring complexity science with Python.  Available free from
-
-http://greenteapress.com/complexity
-
-Copyright 2011 Allen B. Downey.
-Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
-"""
 
 class Graph(dict):
     """A Graph is a dictionary of dictionaries.  The outer
@@ -41,8 +33,7 @@ class Graph(dict):
         self[w][v] = e
 
     def get_edge(self, u, v):
-        """Returns an edge between two vertices if it exists or None otherwise
-        """
+        """Returns an edge between two vertices if it exists or None otherwise."""
         try:
             return self[u][v]
         except Exception:
@@ -61,13 +52,22 @@ class Graph(dict):
             raise ValueError("Trying to remove non-existent edge")
             
     def vertices(self):
-        """Returns the list of vertices in the graph.
-        """
+        """Returns the list of vertices in the graph."""
         return [k for k in self]
 
+    def edges(self):
+        """ Returns a list of all edges in the graph"""
+        # The add_edge function duplicates each edge, once for each vertex.
+        # We use a set to ensure that we only return unique edges.
+        answer = set()
+        for src, val in self.iteritems():
+            for dest, edge in val.iteritems():
+                answer.add(edge)
+        return list(answer)
+        
+        
     def out_edges(self, v):
-        """ Returns the list of edges for a vertex
-        """
+        """ Returns the list of edges for a vertex"""
         if(self[v]):
             return [self[v][k] for k in self[v]]
         else:

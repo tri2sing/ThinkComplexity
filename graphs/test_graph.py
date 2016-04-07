@@ -58,3 +58,24 @@ def test_vertices(test_graph):
     # A set as test for equality requires the elements be hashable.
     # Also requires that no vertex has been removed from the fixture.
     assert(set(returned_vertices) == set(check_vertices))
+
+def test_edges():
+    # We do know the order in which individual tests are called.
+    # We need to accommodate a possible call of remove_edge.
+    u = Vertex('u')
+    v = Vertex('v')
+    w = Vertex('w')
+
+    e1 = Edge(u, v)
+    e2 = Edge(v, w)
+    e3 = Edge(w, u)
+    check_edges = [e1, e2, e3]
+    g = Graph([u, v, w], check_edges)
+    returned_edges = g.edges()
+    assert(len(returned_edges) == len(check_edges))
+    assert(set(returned_edges) == set(check_edges))
+    
+    
+    
+    
+    
