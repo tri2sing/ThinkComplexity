@@ -23,7 +23,8 @@ class Edge(tuple):
 
     def __eq__(self, other):
         if type(other) is type(self):
-            return self[0] == other[0] and self[1] == other[1]
+            # As this is an undirected edge.  Will need to change for a directed edge.
+            return (self[0] == other[0] and self[1] == other[1]) or (self[0] == other[1] and self[1] == other[0])
         return False
 
     def __hash__(self):

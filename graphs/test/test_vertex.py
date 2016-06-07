@@ -4,7 +4,7 @@ Created on Apr 3, 2016
 @author: Sameer Adhikari
 '''
 
-from graphs.vertex import Vertex
+from graphs.src.vertex import Vertex
 
 def test_equal():
     u1 = Vertex('u')

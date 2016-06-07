@@ -1,3 +1,4 @@
+from edge import Edge
 
 class Graph(dict):
     """A Graph is a dictionary of dictionaries.  The outer
@@ -67,13 +68,16 @@ class Graph(dict):
         
         
     def out_edges(self, v):
-        """ Returns the list of edges for a vertex"""
+        """ Returns the list of edges connected to the input vertex."""
         if(self[v]):
             return [self[v][k] for k in self[v]]
         else:
             return None
-
+        
     def add_all_edges(self):
-        return 1
-         
-            
+        vs = self.vertices()
+        n = len(vs)
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                self.add_edge(Edge(vs[i], vs[j]))
+                
