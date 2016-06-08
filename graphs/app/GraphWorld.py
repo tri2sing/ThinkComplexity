@@ -4,10 +4,9 @@ Created on Jun 6, 2016
 @author: Sameer Adhikari
 '''
 
-""" Code example from Complexity and Computation, a book about
-exploring complexity science with Python.  Available free from
-
-http://greenteapress.com/complexity
+""" Code example from Complexity and Computation, 
+a book about exploring complexity science with Python.  
+Available free from http://greenteapress.com/complexity
 
 Copyright 2011 Allen B. Downey.
 Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
@@ -125,7 +124,7 @@ class Layout(dict):
         x2, y2 = self.pos(v2)
         dx = x1 - x2
         dy = y1 - y2
-        return math.sqrt(dx**2 + dy**2)
+        return math.sqrt(dx ** 2 + dy ** 2)
 
     def sort_by_distance(self, v, others):
         """Returns a list of the vertices in others sorted in

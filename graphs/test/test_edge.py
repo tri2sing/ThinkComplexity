@@ -38,6 +38,8 @@ def test_hash1():
     assert(len(d.keys()) == 1)
 
 # This test will fail for now.
+# For an undirected graph (u, v) and (v, u) should be the same.
+
 # def test_hash2():
 #     u1 = Vertex('u')
 #     v1 = Vertex('v')

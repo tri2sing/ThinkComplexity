@@ -80,4 +80,7 @@ class Graph(dict):
         for i in range(n - 1):
             for j in range(i + 1, n):
                 self.add_edge(Edge(vs[i], vs[j]))
-                
+
+    def add_regular_edges(self):
+        """Currently not implemented as I don't know the algorithm and cannot locate one. """
+        raise NotImplementedError
