@@ -1,4 +1,5 @@
 from edge import Edge
+from collections import deque
 
 class Graph(dict):
     """A Graph is a dictionary of dictionaries.  The outer
@@ -66,7 +67,14 @@ class Graph(dict):
                 answer.add(edge)
         return list(answer)
         
-        
+    
+    def out_vertices(self, v):
+        ''' Returns a list of vertices connected to the input vertex'''
+        if self[v]:
+            return [k for k in self[v]]
+        else:
+            return None
+            
     def out_edges(self, v):
         """ Returns the list of edges connected to the input vertex."""
         if(self[v]):
@@ -84,3 +92,27 @@ class Graph(dict):
     def add_regular_edges(self):
         """Currently not implemented as I don't know the algorithm and cannot locate one. """
         raise NotImplementedError
+    
+    def is_connected(self):
+        '''Perform breadth first traversal beginning at any vertex.
+        If all vetices are not visited by BFS, return False, else True.
+        '''
+        vs = self.vertices()
+        qu = deque()
+        qu.append(vs[0])
+        visited = {}
+        while qu:
+            node = qu.popleft()
+            if node in visited:
+                continue
+            visited[node] = True
+            for neighbor in self.out_vertices(node):
+                qu.append(neighbor)
+            
+        for v in self.vertices():
+            if v not in visited:
+                return False
+        return True
+        
+        
+        
