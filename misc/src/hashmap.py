@@ -68,7 +68,7 @@ class HashMap(object):
     def put(self, key, val):
         if self.num == len(self.bmap.lmaps):
             # This clause ensures that, on the average, there is only one element in each linear map.
-            # Changing this to self.num * k = len(self.bmap.maps), to allow k elements in each linear map.
+            # Change this to self.num * k = len(self.bmap.maps), for an average of k elements in each linear map.
             self._resize()
      
         

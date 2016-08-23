@@ -13,7 +13,7 @@ Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
 """
 
 import string
-import random
+import misc
 import math
 
 from itertools import chain
@@ -149,7 +149,7 @@ class CircleLayout(Layout):
 
 
 class RandomLayout(Layout):
-    """Create a layout with each Vertex at a random position in
+    """Create a layout with each Vertex at a misc position in
     [[-max, -max], [max, max]]."""
 
     def __init__(self, g, max=10):
@@ -159,13 +159,13 @@ class RandomLayout(Layout):
             self[v] = self.random_pos()
 
     def random_pos(self):
-        """choose a random position and return it as a tuple"""
-        x = random.uniform(-self.max, self.max)
-        y = random.uniform(-self.max, self.max)
+        """choose a misc position and return it as a tuple"""
+        x = misc.uniform(-self.max, self.max)
+        y = misc.uniform(-self.max, self.max)
         return x, y
 
     def spread_vertex(self, v, others, min_dist=1.0):
-        """Keep choosing random positions for v until it is at least
+        """Keep choosing misc positions for v until it is at least
         min_dist units from the vertices in others.
 
         Each time it fails, it relaxes min_dist by 10%.
