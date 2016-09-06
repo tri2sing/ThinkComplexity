@@ -6,12 +6,16 @@ Created on Aug 22, 2016
 
 class LinearMap(object):
     """Stores a list of tuples, where each tuple is a key-value pair.
+    This is not a robust key-value structure as it allows a user to
+    enter the same key with multiple values, and returns the first
+    inserted value in in case there are multiple entries for a key.
+    A real solution would would always return the last inserted value.
     """
     def __init__(self):
         self.items = []
     
     def put(self, key, val):
-        """Inserts key-valuue pair into the map in O(1) time."""
+        """Inserts key-value pair into the map in O(1) time."""
         self.items.append((key, val))
         
     def get(self, key):
